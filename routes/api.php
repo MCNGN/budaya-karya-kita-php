@@ -34,4 +34,4 @@ Route::post('/forum', [ForumController::class, 'createPost']);
 Route::get('/forum', [ForumController::class, 'getPosts']);
 Route::get('/forum/{id}', [ForumController::class, 'getPostById']);
 Route::put('/forum/{id}', [ForumController::class, 'updatePost']);
-Route::middleware('auth:api')->Route::delete('/forum/{id}', [ForumController::class, 'deletePost']);
+Route::middleware('auth:api')->delete('/forum/{id}', [ForumController::class, 'deletePost']);
