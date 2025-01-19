@@ -72,7 +72,7 @@ class EducationController extends Controller
     {
         try {
             $this->validate($request, [
-                'title' => 'required|string|max:255',
+                'title' => 'required|string',
                 'description' => 'required|string',
                 'image' => 'required|string',
                 'youtube' => 'required|string',

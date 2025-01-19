@@ -10,8 +10,8 @@ class Education extends Model {
 
     protected $fillable = [
         'title',
-        'image',
         'description',
+        'image',
         'youtube',
     ];
 }
