@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,3 +37,9 @@ Route::get('/forum', [ForumController::class, 'getPosts']);
 Route::get('/forum/{id}', [ForumController::class, 'getPostById']);
 Route::put('/forum/{id}', [ForumController::class, 'updatePost']);
 Route::middleware('auth:api')->delete('/forum/{id}', [ForumController::class, 'deletePost']);
+
+Route::post('/comments', [CommentController::class, 'createComment']);
+Route::get('/comments/post/{id}', [CommentController::class, 'getCommentsByPostId']);
+Route::put('/comments/{id}', [CommentController::class, 'updateComment']);
+Route::middleware('auth:api')->delete('/comments/{id}', [CommentController::class, 'deleteComment']);
+Route::middleware('auth:api')->get('/comments', [CommentController::class, 'getCommentsList']);

@@ -20,9 +20,15 @@ class User extends Authenticatable implements JWTSubject
         'role',
     ];
 
+    
     protected $hidden = [
         'password',
     ];
+
+    public function forums()
+    {
+        return $this->hasMany(Forum::class);
+    }
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
