@@ -18,7 +18,14 @@ class AuthController extends Controller
             return response()->json(['error' => 'Invalid credentials'], 401);
         }
 
-        return response()->json(['token' => $token]);
+        $user = Auth::user();
+
+        return response()->json([
+            'message' => 'Sign-in successful',
+            'role' => $user->role,
+            'accessToken' => $token,
+            'id' => $user->id
+        ]);
     }
 
     public function register(Request $request)
@@ -37,6 +44,10 @@ class AuthController extends Controller
 
         $token = JWTAuth::fromUser($user);
 
-        return response()->json(['token' => $token]);
+        return response()->json([
+            'message' => 'Sign-up successful',
+            'user' => $user,
+            'accessToken' => $token
+        ], 201);
     }
 }
