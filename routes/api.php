@@ -23,4 +23,9 @@ Route::get('/users/{id}', [UserController::class, 'getUserPublicById']);
 Route::middleware('auth:api')->put('/users/{id}', [UserController::class, 'updateProfile']);
 Route::middleware('auth:api')->delete('/users/{id}', [UserController::class, 'deleteUser']);
 
+Route::get('/educations/{id}', [EducationController::class, 'getEducationById']);
 Route::get('/education/random', [EducationController::class, 'getEducationRandom']);
+Route::middleware('auth:api')->get('/educations', [EducationController::class, 'getEducationList']);
+Route::middleware('auth:api')->post('/educations', [EducationController::class, 'createEducation']);
+Route::middleware('auth:api')->put('/educations/{id}', [EducationController::class, 'updateEducation']);
+Route::middleware('auth:api')->delete('/educations/{id}', [EducationController::class, 'deleteEducation']);
