@@ -29,3 +29,9 @@ Route::middleware('auth:api')->get('/educations', [EducationController::class, '
 Route::middleware('auth:api')->post('/educations', [EducationController::class, 'createEducation']);
 Route::middleware('auth:api')->put('/educations/{id}', [EducationController::class, 'updateEducation']);
 Route::middleware('auth:api')->delete('/educations/{id}', [EducationController::class, 'deleteEducation']);
+
+Route::post('/forum', [ForumController::class, 'createPost']);
+Route::get('/forum', [ForumController::class, 'getPosts']);
+Route::get('/forum/{id}', [ForumController::class, 'getPostById']);
+Route::put('/forum/{id}', [ForumController::class, 'updatePost']);
+Route::middleware('auth:api')->Route::delete('/forum/{id}', [ForumController::class, 'deletePost']);
